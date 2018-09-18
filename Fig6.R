@@ -250,9 +250,7 @@ p5<-hist(VAR_af5,breaks=100)
 plot(p5)
 dim(VAR_af5)<-prod(d)
 
-
-
-# Data frame making
+# Making data frame for plotting
 BWs=rep(seq(0.1,0.3,by=0.05),each=prod(d))
 cVAR=c(VAR_af1,VAR_af2,VAR_af3,VAR_af4,VAR_af5)   # Combined variances
 df<-data.frame(bw=BWs,variances=cVAR)
