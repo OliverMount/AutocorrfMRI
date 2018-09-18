@@ -11,7 +11,6 @@ library(reshape2)
 source('TimeAC0.R')
 
 
-# 9 mins data (Initial 5 volumes removed)
 TR=c(0.645,1.4,2.5) 
 N=c(895,399,115)      # length of time series change according to the TRs
 
