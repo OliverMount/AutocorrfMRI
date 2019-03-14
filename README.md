@@ -1,9 +1,6 @@
 # AutocorrfMRI
 This repository contains R programs to reproduce the figures in the manuscript: "The Impact of sampling rate in variance correction for single subject fMRI connectivity analysis."
-
-
-File name               Description 
------------      ---------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 Fig2_Fig4.R  ----    To produce Fig 2 and subfigures in Fig. 4
  
