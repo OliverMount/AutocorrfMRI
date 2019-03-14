@@ -2,15 +2,15 @@
 This repository contains R programs to reproduce the figures in the manuscript: "The Impact of sampling rate in variance correction for single subject fMRI connectivity analysis."
 
 
-File name                   Description 
+File name -----------------     Description 
 -----------      ---------------------------------------------------------------
 
-Fig2_Fig4.R     To produce Fig 2 and subfigures in Fig. 4
+Fig2_Fig4.R  ----    To produce Fig 2 and subfigures in Fig. 4
  
 
-Fig. 3a.R       To reproduce empirical PDF a) Z-score 
+Fig. 3a.R   ----    To reproduce empirical PDF a) Z-score 
 
-Fig. 3b.R       To reproduce empirical PDF b) t-score
+Fig. 3b.R   ----    To reproduce empirical PDF b) t-score
 
 Fig. 5a.R       To produce variance of SPCC due to filter for various TRs [AFNI (IIR) filters]  
                 (Please extract the Filter.zip and place them in the folder in the location of the Fig5a.R ) 
