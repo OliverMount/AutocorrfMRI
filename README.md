@@ -1,21 +1,22 @@
 # AutocorrfMRI
-R codes to reproduce all the figures for the manuscript The Impact of sampling rate in variance correction for single subject fMRI connectivity analysis.
+This repository contains R programs to reproduce the figures in the manuscript: "The Impact of sampling rate in variance correction for single subject fMRI connectivity analysis."
 
 
+File name                   Description 
+-----------      ---------------------------------------------------------------
 
-The programs are in the following order
+Fig2_Fig4.R     To produce Fig 2 and subfigures in Fig. 4
+ 
 
-Fig. 2 and 4. The program is used to produce the Fig 2 and subfigures in Fig. 4  [Refer Fig2_Fig4.R file]. 
+Fig. 3a.R       To reproduce empirical PDF a) Z-score 
 
-Fig. 3a. Empirical PDF of the Z score for filtered and unfiltered data [Refer Fig3a.R]
+Fig. 3b.R       To reproduce empirical PDF b) t-score
 
-Fig. 3b. Empirical PDF of the t score for filtered and unfiltered data [Refer Fig4a.R]
+Fig. 5a.R       To produce variance of SPCC due to filter for various TRs [AFNI (IIR) filters]  
+                (Please extract the Filter.zip and place them in the folder in the location of the Fig5a.R ) 
 
-Fig. 5a. Variance of SPCC due to filter  for various TRs [AFNI (IIR) filters]  
-(Please extract the Filter.zip and place them in the folder in the location of the Fig5a.R ) [Refer Fig5a.R]
-
-Fig. 5b. Variance of SPCC due to filter for various TRs [AFNI (IIR), FSL and FIR] 
-(Please extract the Filter.zip and place them in the folder in the location of the Fig5b.R ) [Refer Fig5b.R]
+Fig. 5b.R       To produce variance of SPCC for AFNI (IIR), FSL and FIR filters  
+                (Please extract the Filter.zip and place them in the folder in the location of the Fig5b.R ) 
 
 
 Fig. 6. Histograms of variance of the SPC before and after filtering 
