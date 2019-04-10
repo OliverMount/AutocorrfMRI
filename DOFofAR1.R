@@ -1,8 +1,11 @@
-DOFofAR1 <- function(Ch,alpha,beta,N,rho,varv,varw)
+DOFofAR1 <- function(Ch,alpha,beta,N,rho,var1,var2)
 {
   
   # This function returns the variance of the SPC for two AR(1) 
   # correlated time series with parameters alpha and beta
+  # Ch - deterministic autocorrelation of temporal filter
+  # rho - true correlation between white series (non-AR)
+  # var1 and var2 -  variance of the white series (assumed to be 1)
   
   # Initializations
   Cmtx<-array(0,dim=c(3,3))
