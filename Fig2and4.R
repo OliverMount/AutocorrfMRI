@@ -20,11 +20,11 @@ source('TimeAC0.R')  # Not normalized
 source('TimeCC.R')
 source('gset.R')
 
-Desiredq=0.001
+Desiredq=0.001    # Desired q value (corrected p-value)
 Nn=9  # Number of nodes
-PstatTrue=c(-0.21,0.58,0.72,0.4,-0.1,0.8,-0.68,0.32,0.63)  # Pearson Statistics (True)
-PstatBF=c(-0.004,0.51,0.05,0.4,-0.1,0.46,-0.645,0.29,0.63) #  Pearson Statistics (Before Filtering)
-PstatAF=c(-0.0175,0.57,0.35, 0.4,-0.1, 0.48,-0.657,0.3,0.63) #  Pearson Statistics (After Filtering)
+PstatTrue=c(-0.21,0.58,0.72,0.4,-0.1,0.8,-0.68,0.32,0.63)  # raw Pearson Statistics (True)
+PstatBF=c(-0.004,0.51,0.05,0.4,-0.1,0.46,-0.645,0.29,0.63) #  raw Pearson Statistics (Before Filtering, AR correlated)
+PstatAF=c(-0.0175,0.57,0.35, 0.4,-0.1, 0.48,-0.657,0.3,0.63) #  raw Pearson Statistics (After Filtering, AR and filter correlated)
 
 vaBF=c(5.470601e-05,0.002801171,0.0003199577,0.1254442,0.02117411,0.2641356,0.0008700172,0.002305576,0.1016729) #Variance before Filtering
 
@@ -60,7 +60,7 @@ coord[8,]=c(0,3)    # Group 3
 coord[9,]=c(0.5,2.5)
 coord[10,]=c(0.5,3.5)
 
-######### Uncomment this for plotting the simulation set up ########
+######### Making graph in Fig.2  ########
 
 g <- graph(edges=c(1,2,1,3,1,4,1,5,1,6,1,7,1,8,1,9,1,10),n=10,directed=F)
 E(g)$weight=PstatAF
@@ -92,8 +92,8 @@ image.plot(legend.only=TRUE,
            legend.lab = "Pearson Correlation",legend.cex = 1.3,
            smallplot= c(0.1,0.9,0.15,0.2))
 
-######## Preparing for Fig. 4a and 4d ################ 
-
+######## For Fig. 4a and 4d ################ 
+#### Preparing the graphs (plotting done afterwards)
 
 # Before filtering (FisherZ graph)
 g <- graph(edges=c(1,2,1,3,1,4,1,5,1,6,1,7,1,8,1,9,1,10),n=10,directed=F)
@@ -118,7 +118,7 @@ V(g)$color<-c("#FF0000",OcolorF[1:9])
 V(g1)$color<-c("#FF0000",OcolorF[10:18])
 FZval=sort(FZarr)  # Sorted Fisher value
 
-
+### Plotting the graphs
 ###### Fig 4a ##########
 par(mar=c(0,0,0,0),mfrow=c(1,1))
 plot.igraph(g,layout=coord,mark.groups = list(c(2,3,4),c(5,6,7),c(8,9,10)),
@@ -150,7 +150,7 @@ for (i in 1:(length(OcolorF1))) {
   rect(y,-1,y+1,.4,col=OcolorF1[i], border=NA)    # Change the last value here for the height of the color bar
 }
 
-######## Preparing for Fig. 4b,c,e,f,g ################ 
+######## Preparing for graphs Fig. 4b,c,e,f,g ################ 
 
 ######## Setting up the Z-value graphs (Before Filtering)
 # Nominal
@@ -281,10 +281,7 @@ nodenametemp[setdiff(2:(Nn+1),EdgS)]=""
 V(gS)$name=nodenametemp
 V(gS)$label.cex=3
 
-
-
 # Plotting the pruned graph (After filtering case)
-
 # Nominal
 a=rep(1,length(EdgN_AF))
 gNF <- graph(edges=c(rbind(a,EdgN_AF)),n=10,directed=F)
@@ -299,7 +296,6 @@ nodenametemp[setdiff(2:(Nn+1),EdgN_AF)]=""
 V(gNF)$name=nodenametemp
 V(gNF)$label.cex=3
 
-
 # Filter only 
 a=rep(1,length(EdgF))
 gF <- graph(edges=c(rbind(a,EdgF)),n=10,directed=F)
@@ -313,7 +309,6 @@ nodenametemp<-as.character(1:(Nn+1))
 nodenametemp[setdiff(2:(Nn+1),EdgF)]=""
 V(gF)$name=nodenametemp
 V(gF)$label.cex=3
-
 
 # Filter + Signal
 a=rep(1,length(EdgFS))
@@ -333,14 +328,12 @@ plot(gFS,layout=coord,mark.groups = list(c(3,4),c(8,9)),
 
 ###### Fig 4b ##########
 
-
 par(mar=c(0,0,0,0),mfrow=c(1,1))
 plot(gN,layout=coord,mark.groups = list(c(3),c(5,7),c(8,9,10)),
      mark.col ="lightblue",vertex.label.family="serif",mark.border = F)
 text(0,-.93,"Seed",cex = 3,col="blue",font=2)
 
 ###### Fig 4c ##########
-
 
 par(mar=c(0,0,0,0),mfrow=c(1,1))
 plot(gS,layout=coord,mark.groups = list(c(3),c(8,9)),
@@ -349,14 +342,12 @@ text(0,-.93,"Seed",cex = 3,col="blue",font=2)
 
 ###### Fig 4e ##########
 
-
 par(mar=c(0,0,0,0),mfrow=c(1,1))
 plot(gNF,layout=coord,mark.groups = list(c(3,4),c(5,7),c(8,9,10)),
      mark.col ="lightblue",vertex.label.family="serif",mark.border = F)
 text(0,-.93,"Seed",cex = 3,col="blue",font=2)
 
 ###### Fig 4f ##########
-
 
 par(mar=c(0,0,0,0),mfrow=c(1,1))
 plot(gF,layout=coord,mark.groups = list(c(3,4),c(5,7),c(8,10)),
@@ -365,21 +356,16 @@ text(0,-.93,"Seed",cex = 3,col="blue",font=2)
 
 ###### Fig 4g ##########
 
-
 par(mar=c(0,0,0,0),mfrow=c(1,1))
 plot(gFS,layout=coord,mark.groups = list(c(3,4),c(8,9)),
      mark.col ="lightblue",vertex.label.family="serif",mark.border = F)
 text(0,-.93,"Seed",cex = 3,col="blue",font=2)
 
 ###### Color bar for  Fig 4b,c,e,f,g ##########
-
-
 ma=max(Zarr)
 mi=min(Zarr)
-
 scale = (length(OcolorZZ))/(ma-mi)
 ticks=round(seq(mi,ma, len=11))
-
 plot(20,20, type='n', xaxt='n', bty='n',xlab='Z score',cex.lab=2.2, yaxt='n', ylab='',xlim=c(mi,ma),ylim=c(0,60))
 axis(side=1,at=ticks,cex.axis=2)
 
