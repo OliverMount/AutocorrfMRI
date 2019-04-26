@@ -2,6 +2,8 @@
 
 This repository contains R programs to reproduce the figures in the paper: "The Impact of sampling rate on statistical significance for single subject fMRI connectivity analysis."
 
+https://onlinelibrary.wiley.com/doi/full/10.1002/hbm.24600
+
 ----------------------------------------------------------------------------------------
 
 Fig2andFig4.R  ----    To produce Fig 2 and subfigures in Fig. 4
