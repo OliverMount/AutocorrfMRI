@@ -36,6 +36,7 @@ Additional function files
 ----------------------------------------------------------------------------------------
 
 VoxelDOF.R  ----  to compute the variance (1/DOF) between a seed voxel and another voxel time series
+
 VarSPCC.R  --- function to compute the variance of the SPCC between two time series $x_1$ and $x_2$.
 
 (The files are periodically updated)
