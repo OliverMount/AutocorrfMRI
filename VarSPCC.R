@@ -2,7 +2,7 @@ VarSPCC<- function(R1,R2)
 {
 
   # R1 and R2 are two time series
-  N= length(R1)
+  N= length(R1)   # length of the time series (assuming both are equal length)
   # Initializations
   D<-array(0,dim=c(3,3))
  
@@ -21,7 +21,6 @@ VarSPCC<- function(R1,R2)
  
  
   # Formation of Covariance matrix
- 
   C=c(-rxy0/(2*(sqrt((rx0^3)*ry0))),
       -rxy0/(2*(sqrt(rx0*(ry0^3)))),
       1/sqrt(rx0*ry0))
