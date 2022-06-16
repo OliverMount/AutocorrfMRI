@@ -1,5 +1,8 @@
 # AutocorrfMRI
 
+Autocorrelation both inherent and pre-processing induced in the fMRI time series affects the connectivity analysis. The autocorrelation issue is largely ignored in the fMRI preprocessing literature. We bring to forefront the impact of the autocorrelation in connectivity analysis using real and simulated data.
+
+
 This repository contains R programs to reproduce the figures in the paper: "The Impact of sampling rate on statistical significance for single subject fMRI connectivity analysis."
 
 https://onlinelibrary.wiley.com/doi/full/10.1002/hbm.24600
